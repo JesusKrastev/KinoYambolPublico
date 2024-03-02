@@ -7,5 +7,5 @@ import javax.inject.Inject
 class LanguageRepository @Inject constructor(
     private val dao: LanguageDaoMock
 ) {
-    private fun get(): MutableList<Language> = dao.get().map { it.toLanguage() }.toMutableList()
+    suspend fun get(): MutableList<Language> = dao.get().map { it.toLanguage() }.toMutableList()
 }

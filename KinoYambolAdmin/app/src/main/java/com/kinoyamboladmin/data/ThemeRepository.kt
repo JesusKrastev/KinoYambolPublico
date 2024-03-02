@@ -7,5 +7,5 @@ import javax.inject.Inject
 class ThemeRepository @Inject constructor(
     private val dao: ThemeDaoMock
 ) {
-    fun get(): MutableList<Theme> = dao.get().map { it.toTheme() }.toMutableList()
+    suspend fun get(): MutableList<Theme> = dao.get().map { it.toTheme() }.toMutableList()
 }

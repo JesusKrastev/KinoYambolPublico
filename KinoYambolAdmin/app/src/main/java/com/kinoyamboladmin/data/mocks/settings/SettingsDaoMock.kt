@@ -3,7 +3,7 @@ package com.kinoyamboladmin.data.mocks.settings
 import javax.inject.Inject
 
 class SettingsDaoMock @Inject constructor() {
-    val settings: MutableList<SettingsMock> = mutableListOf<SettingsMock>(
+    private var settings: MutableList<SettingsMock> = mutableListOf<SettingsMock>(
         SettingsMock(
             id = 1,
             language = "Español",

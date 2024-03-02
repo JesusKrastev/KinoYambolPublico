@@ -1,7 +1,9 @@
 package com.kinoyamboladmin.data
 
+import com.kinoyamboladmin.data.mocks.language.LanguageMock
 import com.kinoyamboladmin.data.mocks.movie.MovieMock
 import com.kinoyamboladmin.data.mocks.settings.SettingsMock
+import com.kinoyamboladmin.models.Language
 import com.kinoyamboladmin.models.Movie
 import com.kinoyamboladmin.models.Settings
 
@@ -47,4 +49,16 @@ fun Settings.toSettingsMock(): SettingsMock =
         id = id,
         language = language,
         theme = theme
+    )
+
+fun LanguageMock.toLanguage(): Language =
+    Language(
+        id = id,
+        language = language
+    )
+
+fun Language.toLanguageMock(): LanguageMock =
+    LanguageMock(
+        id = id,
+        language = language
     )

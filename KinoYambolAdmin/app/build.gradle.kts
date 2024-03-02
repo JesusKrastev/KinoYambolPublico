@@ -85,6 +85,3 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.5.0")
     implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.28")
 }
-
-
-

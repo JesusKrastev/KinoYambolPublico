@@ -1,6 +1,8 @@
 package com.kinoyamboladmin.data.mocks.theme
 
-class ThemeDaoMock {
+import javax.inject.Inject
+
+class ThemeDaoMock @Inject constructor() {
     private var themes = mutableListOf<ThemeMock>(
         ThemeMock(
             id = 1,

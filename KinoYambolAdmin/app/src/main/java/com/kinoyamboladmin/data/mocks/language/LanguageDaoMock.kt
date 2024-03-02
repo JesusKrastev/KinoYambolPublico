@@ -1,6 +1,8 @@
 package com.kinoyamboladmin.data.mocks.language
 
-class LanguageDaoMock {
+import javax.inject.Inject
+
+class LanguageDaoMock @Inject constructor() {
     private var languages = mutableListOf<LanguageMock>(
         LanguageMock(
             id = 1,

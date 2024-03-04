@@ -7,7 +7,7 @@ class SettingsDaoMock @Inject constructor() {
         SettingsMock(
             id = 1,
             language = "Español",
-            theme = "Dark"
+            theme = "Oscuro"
         )
     )
     fun get(): MutableList<SettingsMock> = settings

@@ -7,12 +7,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.kinoyamboladmin.ui.features.moviesheet.MovieSheetViewModel
 import com.kinoyamboladmin.ui.features.seemovies.MoviesListViewModel
+import com.kinoyamboladmin.ui.features.settings.SettingsViewModel
 
 @Composable
 fun MovieNavHost() {
     val navController: NavHostController = rememberNavController()
     val vmMoviesList: MoviesListViewModel = hiltViewModel<MoviesListViewModel>()
     val vmMovieSheet: MovieSheetViewModel = hiltViewModel<MovieSheetViewModel>()
+    val vmSettings: SettingsViewModel = hiltViewModel<SettingsViewModel>()
     val animationDuration = 500
 
     NavHost(
@@ -28,7 +30,9 @@ fun MovieNavHost() {
             onNavigateToStatistics = {
                 navController.navigateToStatistics()
             },
-            onNavigateToSettings = {},
+            onNavigateToSettings = {
+                navController.navigateToSettings()
+            },
             onNavigateCreateMovie = {},
             onNavigateMovieSheet = {
                 navController.navigateToMovieSheet(it)
@@ -43,7 +47,9 @@ fun MovieNavHost() {
             onNavigateToStatistics = {
                 navController.navigateToStatistics()
             },
-            onNavigateToSettings = {},
+            onNavigateToSettings = {
+                navController.navigateToSettings()
+            },
             onNavigateEditMovie = {}
         )
         statisticsScreen(
@@ -52,6 +58,19 @@ fun MovieNavHost() {
             },
             onNavigateToScanner = {},
             onNavigateToStatistics = {},
+            onNavigateToSettings = {
+                navController.navigateToSettings()
+            }
+        )
+        settingsScreen(
+            vm = vmSettings,
+            onNavigateToMovies = {
+                navController.navigateToMoviesList()
+            },
+            onNavigateToScanner = {},
+            onNavigateToStatistics = {
+                navController.navigateToStatistics()
+            },
             onNavigateToSettings = {}
         )
     }

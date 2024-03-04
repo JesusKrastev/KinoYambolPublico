@@ -12,8 +12,6 @@ interface SettingsDao {
     suspend fun insert(settings : SettingsEntity)
     @Update(onConflict = OnConflictStrategy.ABORT)
     suspend fun update(settings : SettingsEntity)
-    @Query("SELECT * FROM settings")
-    suspend fun get(): List<SettingsEntity>
     @Query("SELECT COUNT(*) FROM settings")
     suspend fun count(): Int
 }

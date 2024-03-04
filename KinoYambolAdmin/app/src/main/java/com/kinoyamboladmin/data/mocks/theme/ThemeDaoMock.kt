@@ -6,15 +6,15 @@ class ThemeDaoMock @Inject constructor() {
     private var themes = mutableListOf<ThemeMock>(
         ThemeMock(
             id = 1,
-            theme = "Sistema"
+            theme = "System"
         ),
         ThemeMock(
             id = 2,
-            theme = "Oscuro"
+            theme = "Dark"
         ),
         ThemeMock(
             id = 1,
-            theme = "Claro"
+            theme = "Light"
         )
     )
 

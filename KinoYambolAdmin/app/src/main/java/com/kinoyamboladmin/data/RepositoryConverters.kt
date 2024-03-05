@@ -1,7 +1,9 @@
 package com.kinoyamboladmin.data
 
+import com.kinoyamboladmin.data.mocks.information.InformationMock
 import com.kinoyamboladmin.data.mocks.language.LanguageMock
 import com.kinoyamboladmin.data.mocks.movie.MovieMock
+import com.kinoyamboladmin.models.Information
 import com.kinoyamboladmin.models.Language
 import com.kinoyamboladmin.models.Movie
 
@@ -45,4 +47,22 @@ fun Language.toLanguageMock(): LanguageMock =
     LanguageMock(
         id = id,
         name = name
+    )
+
+fun InformationMock.toInformation(): Information =
+    Information(
+        id = id,
+        movieId = movieId,
+        language = language,
+        date = date,
+        hours = hours
+    )
+
+fun Information.toInformationMock(): InformationMock =
+    InformationMock(
+        id = id,
+        movieId = movieId,
+        language = language,
+        date = date,
+        hours = hours
     )

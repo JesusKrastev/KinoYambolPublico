@@ -62,12 +62,12 @@ class SettingsViewModel @Inject constructor(
         when(event) {
             is SettingsEvent.OnChangeLanguage -> {
                 viewModelScope.launch {
-                    settingsRepository.saveLanguage(userSettingsState!!.language)
+                    settingsRepository.saveLanguage(event.language)
                 }
             }
             is SettingsEvent.OnChangeTheme -> {
                 viewModelScope.launch {
-                    settingsRepository.saveTheme(userSettingsState!!.theme)
+                    settingsRepository.saveTheme(event.theme)
                 }
             }
             is SettingsEvent.OnClickPrivacyPolicies -> {

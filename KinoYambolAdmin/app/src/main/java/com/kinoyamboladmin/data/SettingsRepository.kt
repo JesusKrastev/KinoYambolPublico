@@ -51,7 +51,7 @@ class SettingsRepository @Inject constructor(
 
     private fun mapSettings(preferences: Preferences): Settings {
         val language: String = preferences[PreferencesKeys.LANGUAGE] ?: "Español"
-        val theme: String = preferences[PreferencesKeys.THEME] ?: "Oscuro"
+        val theme: String = preferences[PreferencesKeys.THEME] ?: "Sistema"
 
         return Settings(
             language = language,

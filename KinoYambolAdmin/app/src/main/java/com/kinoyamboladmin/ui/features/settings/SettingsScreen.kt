@@ -24,8 +24,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import com.kinoyamboladmin.models.Language
-import com.kinoyamboladmin.models.Theme
 import com.kinoyamboladmin.ui.composables.DropdownMenu
 import com.kinoyamboladmin.ui.composables.TextBody
 import com.kinoyamboladmin.ui.features.components.MoviesNavBar
@@ -197,8 +195,8 @@ fun MainContent(
 @Composable
 fun SettingsScreen(
     modifier: Modifier = Modifier,
-    languages: List<Language>,
-    themes: List<Theme>,
+    languages: List<String>,
+    themes: List<String>,
     settingsUiState: SettingsUiState,
     onSettingsEvent: (SettingsEvent) -> Unit,
     onNavigateToMovies: () -> Unit,
@@ -214,8 +212,8 @@ fun SettingsScreen(
         content = { paddingValues ->
             MainContent(
                 modifier = Modifier.padding(paddingValues = paddingValues),
-                languages = languages.map { it.language },
-                themes = themes.map { it.theme },
+                languages = languages,
+                themes = themes,
                 settingsUiState = settingsUiState,
                 onChangeLanguage = { onSettingsEvent(SettingsEvent.OnChangeLanguage(it)) },
                 onChangeTheme = { onSettingsEvent(SettingsEvent.OnChangeTheme(it)) },

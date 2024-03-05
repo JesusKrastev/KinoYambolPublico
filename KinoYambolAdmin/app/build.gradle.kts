@@ -89,7 +89,9 @@ dependencies {
     implementation("androidx.room:room-ktx:$roomVersion")
     // optional - Paging 3 Integration
     implementation("androidx.room:room-paging:$roomVersion")
+    implementation ("androidx.datastore:datastore-preferences:1.0.0")
 
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
     implementation("io.coil-kt:coil-compose:2.5.0")
     implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.28")
 }

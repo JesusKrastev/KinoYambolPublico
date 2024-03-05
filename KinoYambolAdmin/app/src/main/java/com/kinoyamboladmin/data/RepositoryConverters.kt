@@ -2,9 +2,7 @@ package com.kinoyamboladmin.data
 
 import com.kinoyamboladmin.data.mocks.language.LanguageMock
 import com.kinoyamboladmin.data.mocks.movie.MovieMock
-import com.kinoyamboladmin.data.mocks.settings.SettingsMock
 import com.kinoyamboladmin.data.mocks.theme.ThemeMock
-import com.kinoyamboladmin.data.room.SettingsEntity
 import com.kinoyamboladmin.models.Language
 import com.kinoyamboladmin.models.Movie
 import com.kinoyamboladmin.models.Settings
@@ -38,34 +36,6 @@ fun Movie.toMovieMock(): MovieMock =
         duration = duration,
         trailerLink = trailerLink,
         price = price
-    )
-
-fun SettingsMock.toSettings(): Settings =
-    Settings(
-        id = id,
-        language = language,
-        theme = theme
-    )
-
-fun Settings.toSettingsMock(): SettingsMock =
-    SettingsMock(
-        id = id,
-        language = language,
-        theme = theme
-    )
-
-fun Settings.toSettingsEntity(): SettingsEntity =
-    SettingsEntity(
-        id = id,
-        language = language,
-        theme = theme
-    )
-
-fun SettingsEntity.toSettings(): Settings =
-    Settings(
-        id = id,
-        language = language,
-        theme = theme
     )
 
 fun LanguageMock.toLanguage(): Language =

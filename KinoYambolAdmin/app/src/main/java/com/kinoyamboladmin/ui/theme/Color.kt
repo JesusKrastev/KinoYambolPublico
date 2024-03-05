@@ -13,7 +13,7 @@ val Black = Color.Black
 
 val Orange = Color(0xFFDB4F16)
 val BlackLight = Color(0xFF111111)
-val BlackGrey = Color(0xFF1E1E1E)
+val BlackGrey = Color(0xFF161616)
 
 val WhiteGrey = Color(0xFFEFF0F4)
 val White = Color(0xFFFFFFFF)

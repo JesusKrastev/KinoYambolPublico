@@ -1,6 +1,8 @@
 package com.kinoyamboladmin.data
 
+import com.kinoyamboladmin.data.mocks.language.LanguageMock
 import com.kinoyamboladmin.data.mocks.movie.MovieMock
+import com.kinoyamboladmin.models.Language
 import com.kinoyamboladmin.models.Movie
 
 fun MovieMock.toMovie(): Movie =
@@ -31,4 +33,16 @@ fun Movie.toMovieMock(): MovieMock =
         duration = duration,
         trailerLink = trailerLink,
         price = price
+    )
+
+fun LanguageMock.toLanguage(): Language =
+    Language(
+        id = id,
+        name = name
+    )
+
+fun Language.toLanguageMock(): LanguageMock =
+    LanguageMock(
+        id = id,
+        name = name
     )

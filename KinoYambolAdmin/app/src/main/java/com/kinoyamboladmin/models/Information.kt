@@ -8,5 +8,5 @@ data class Information(
     val movieId: Int,
     val language: Int,
     val date: LocalDate,
-    val time: LocalTime
+    val hours: List<LocalTime>
 )

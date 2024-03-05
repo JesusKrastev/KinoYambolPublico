@@ -8,5 +8,5 @@ data class InformationMock(
     val movieId: Int,
     val language: Int,
     val date: LocalDate,
-    val time: List<LocalTime>
+    val hours: List<LocalTime>
 )

@@ -2,8 +2,9 @@ package com.kinoyamboladmin.data
 
 import com.kinoyamboladmin.data.mocks.information.InformationDaoMock
 import com.kinoyamboladmin.models.Information
+import javax.inject.Inject
 
-class InformationRepository(
+class InformationRepository @Inject constructor(
     private val dao: InformationDaoMock
 ) {
     fun get(): MutableList<Information> = dao.get().map { it.toInformation() }.toMutableList()

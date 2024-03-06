@@ -15,4 +15,5 @@ class LanguageDaoMock @Inject constructor() {
     )
 
     fun get(): MutableList<LanguageMock> = languages
+    fun get(id: Int): LanguageMock? = languages.find { it.id == id }
 }

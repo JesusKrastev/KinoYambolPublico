@@ -3,7 +3,7 @@ package com.kinoyamboladmin.models
 import java.time.LocalDate
 import java.time.LocalTime
 
-data class Information(
+data class Schedule(
     val id: Int,
     val movieId: Int,
     val language: Int,

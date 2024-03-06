@@ -1,8 +1,10 @@
 package com.kinoyamboladmin.data
 
+import com.kinoyamboladmin.data.mocks.gender.GenderMock
 import com.kinoyamboladmin.data.mocks.information.InformationMock
 import com.kinoyamboladmin.data.mocks.language.LanguageMock
 import com.kinoyamboladmin.data.mocks.movie.MovieMock
+import com.kinoyamboladmin.models.Gender
 import com.kinoyamboladmin.models.Information
 import com.kinoyamboladmin.models.Language
 import com.kinoyamboladmin.models.Movie
@@ -54,8 +56,7 @@ fun InformationMock.toInformation(): Information =
         id = id,
         movieId = movieId,
         language = language,
-        date = date,
-        hours = hours
+        movieSchedule = movieSchedule
     )
 
 fun Information.toInformationMock(): InformationMock =
@@ -63,6 +64,5 @@ fun Information.toInformationMock(): InformationMock =
         id = id,
         movieId = movieId,
         language = language,
-        date = date,
-        hours = hours
+        movieSchedule = movieSchedule
     )

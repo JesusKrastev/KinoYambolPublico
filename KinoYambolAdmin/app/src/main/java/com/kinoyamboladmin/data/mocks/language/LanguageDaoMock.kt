@@ -9,7 +9,7 @@ class LanguageDaoMock @Inject constructor() {
             name = "English"
         ),
         LanguageMock(
-            id = 1,
+            id = 2,
             name = "български"
         )
     )

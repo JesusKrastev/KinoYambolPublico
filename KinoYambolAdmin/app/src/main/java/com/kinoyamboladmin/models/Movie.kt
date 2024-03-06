@@ -7,12 +7,10 @@ import java.time.LocalTime
 data class Movie(
     val id: Int,
     val image: String,
-    val title: String,
+    val name: String,
     val description: String,
     val genders: List<String>,
-    val languages: List<String>,
-    val startDate: LocalDate,
-    val endDate: LocalDate,
+    val schedules: List<Int>,
     val duration: Int,
     val trailerLink: String,
     val price: Double

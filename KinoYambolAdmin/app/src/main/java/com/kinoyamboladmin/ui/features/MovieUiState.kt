@@ -1,32 +1,28 @@
 package com.kinoyamboladmin.ui.features
 
 import com.kinoyamboladmin.models.Movie
-import java.time.LocalDate
+import com.kinoyamboladmin.models.Schedule
 
 data class MovieUiState(
-    val id: Int = System.currentTimeMillis().hashCode(),
-    val image: String,
-    val title: String,
-    val description: String,
-    val genders: List<String>,
-    val languages: List<String>,
-    val startDate: LocalDate,
-    val endDate: LocalDate,
-    val duration: Int,
-    val trailerLink: String,
-    val price: Double
+    val id: Int = 0,
+    val image: String = "",
+    val name: String = "",
+    val description: String = "",
+    val genders: List<String> = emptyList(),
+    val schedules: List<Int> = emptyList(),
+    val duration: Int = 0,
+    val trailerLink: String = "",
+    val price: Double = 0.0
 )
 
 fun Movie.toMovieUiState(): MovieUiState =
     MovieUiState(
         id = id,
         image = image,
-        title = title,
+        name = name,
         description = description,
         genders = genders,
-        languages = languages,
-        startDate = startDate,
-        endDate = endDate,
+        schedules = schedules,
         duration = duration,
         trailerLink = trailerLink,
         price = price
@@ -36,12 +32,10 @@ fun MovieUiState.toMovie(): Movie =
     Movie(
         id = id,
         image = image,
-        title = title,
+        name = name,
         description = description,
         genders = genders,
-        languages = languages,
-        startDate = startDate,
-        endDate = endDate,
+        schedules = schedules,
         duration = duration,
         trailerLink = trailerLink,
         price = price

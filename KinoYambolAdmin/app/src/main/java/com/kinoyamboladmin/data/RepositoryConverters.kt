@@ -13,12 +13,10 @@ fun MovieMock.toMovie(): Movie =
     Movie(
         id = id,
         image = image,
-        title = title,
+        name = name,
         description = description,
         genders = genders,
-        languages = languages,
-        startDate = startDate,
-        endDate = endDate,
+        schedules = schedules,
         duration = duration,
         trailerLink = trailerLink,
         price = price
@@ -28,12 +26,10 @@ fun Movie.toMovieMock(): MovieMock =
     MovieMock(
         id = id,
         image = image,
-        title = title,
+        name = name,
         description = description,
+        schedules = schedules,
         genders = genders,
-        languages = languages,
-        startDate = startDate,
-        endDate = endDate,
         duration = duration,
         trailerLink = trailerLink,
         price = price
@@ -54,7 +50,6 @@ fun Language.toLanguageMock(): LanguageMock =
 fun ScheduleMock.toSchedule(): Schedule =
     Schedule(
         id = id,
-        movieId = movieId,
         language = language,
         movieSchedule = movieSchedule
     )
@@ -62,7 +57,6 @@ fun ScheduleMock.toSchedule(): Schedule =
 fun Schedule.toScheduleMock(): ScheduleMock =
     ScheduleMock(
         id = id,
-        movieId = movieId,
         language = language,
         movieSchedule = movieSchedule
     )

@@ -6,9 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kinoyamboladmin.data.MovieRepository
-import com.kinoyamboladmin.data.ScheduleRepository
 import com.kinoyamboladmin.models.Movie
-import com.kinoyamboladmin.models.Schedule
 import com.kinoyamboladmin.ui.features.MovieUiState
 import com.kinoyamboladmin.ui.features.toMovieUiState
 import dagger.hilt.android.lifecycle.HiltViewModel

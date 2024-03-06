@@ -12,6 +12,9 @@ class ScheduleRepository @Inject constructor(
     suspend fun get(): MutableList<Schedule> = withContext(Dispatchers.IO) {
         dao.get().map { it.toSchedule() }.toMutableList()
     }
+    suspend fun get(id: Int): Schedule? = withContext(Dispatchers.IO) {
+        dao.get(id)?.toSchedule()
+    }
     suspend fun insert(schedule: Schedule) = withContext(Dispatchers.IO) {
         dao.insert(schedule.toScheduleMock())
     }

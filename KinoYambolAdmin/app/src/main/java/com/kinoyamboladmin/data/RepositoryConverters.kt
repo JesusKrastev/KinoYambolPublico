@@ -66,3 +66,15 @@ fun Information.toInformationMock(): InformationMock =
         language = language,
         movieSchedule = movieSchedule
     )
+
+fun GenderMock.toGender(): Gender =
+    Gender(
+        id = id,
+        name = name
+    )
+
+fun Gender.toGenderMock(): GenderMock =
+    GenderMock(
+        id = id,
+        name = name
+    )

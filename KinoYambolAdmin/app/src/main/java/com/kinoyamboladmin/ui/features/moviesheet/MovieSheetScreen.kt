@@ -168,7 +168,7 @@ fun FeatureInformation(
 @Composable
 fun Features(
     modifier: Modifier = Modifier,
-    selectedMovie: MovieUiState
+    selectedMovie: MovieSheetUiState
 ) {
     FlowRow(
         modifier = modifier,
@@ -270,7 +270,7 @@ fun Price(
 @Composable
 fun MainContent(
     modifier: Modifier = Modifier,
-    selectedMovie: MovieUiState
+    selectedMovie: MovieSheetUiState
 ) {
     val context = LocalContext.current
     val imageResource: Int = context.resources.getIdentifier(selectedMovie.image, "drawable", context.packageName)
@@ -287,7 +287,7 @@ fun MainContent(
             modifier = Modifier.padding(horizontal = 8.dp, vertical = 24.dp),
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
-            TextTile(title = selectedMovie.title)
+            TextTile(title = selectedMovie.name)
             ListGenders(genders = selectedMovie.genders)
             Features(selectedMovie = selectedMovie)
             Description(
@@ -303,7 +303,7 @@ fun MainContent(
 @Composable
 fun MovieSheetScreen(
     modifier: Modifier = Modifier,
-    selectedMovie: MovieUiState,
+    selectedMovie: MovieSheetUiState,
     onSheetEvent: (MovieSheetEvent) -> Unit,
     onNavigateToMovies: () -> Unit,
     onNavigateToScanner: () -> Unit,

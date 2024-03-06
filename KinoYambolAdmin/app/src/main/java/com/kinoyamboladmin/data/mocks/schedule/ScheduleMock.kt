@@ -1,9 +1,9 @@
-package com.kinoyamboladmin.data.mocks.information
+package com.kinoyamboladmin.data.mocks.schedule
 
 import java.time.LocalDate
 import java.time.LocalTime
 
-data class InformationMock(
+data class ScheduleMock(
     val id: Int,
     val movieId: Int,
     val language: Int,

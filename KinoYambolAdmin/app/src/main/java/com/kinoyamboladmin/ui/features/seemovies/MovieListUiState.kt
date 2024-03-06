@@ -1,3 +1,6 @@
 package com.kinoyamboladmin.ui.features.seemovies
 
-data class MovieListUiState()
+data class MovieListUiState(
+    val id: Int,
+    val image: String
+)

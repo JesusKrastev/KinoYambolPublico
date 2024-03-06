@@ -49,7 +49,6 @@ import com.kinoyamboladmin.ui.composables.FilterChipWithIcon
 import com.kinoyamboladmin.ui.composables.FloatingActionButtonWithIcon
 import com.kinoyamboladmin.ui.composables.GradientBrush
 import com.kinoyamboladmin.ui.composables.TextTile
-import com.kinoyamboladmin.ui.features.MovieUiState
 import com.kinoyamboladmin.ui.features.components.MoviesNavBar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -92,7 +91,7 @@ fun HeaderImage(
 fun ListNewMovies(
     modifier: Modifier = Modifier,
     pagerState: PagerState,
-    newMovies: List<MovieUiState>
+    newMovies: List<MovieListUiState>
 ) {
     val context = LocalContext.current
 
@@ -138,7 +137,7 @@ fun PagerIndicator(
 @Composable
 fun HeaderNews(
     modifier: Modifier = Modifier,
-    newMovies: List<MovieUiState>
+    newMovies: List<MovieListUiState>
 ) {
     val pagerState: PagerState = rememberPagerState(pageCount = { newMovies.size })
     val coroutineScope = rememberCoroutineScope()
@@ -244,7 +243,7 @@ fun MovieCard(
 @Composable
 fun ListMovies(
     modifier: Modifier = Modifier,
-    movies: List<MovieUiState>,
+    movies: List<MovieListUiState>,
     onClickMovie: (Int) -> Unit
 ) {
     val context = LocalContext.current
@@ -272,8 +271,8 @@ fun ListMovies(
 @Composable
 fun MainContent(
     modifier: Modifier = Modifier,
-    movies: List<MovieUiState>,
-    newMovies: List<MovieUiState>,
+    movies: List<MovieListUiState>,
+    newMovies: List<MovieListUiState>,
     filterUiState: FilterUiState,
     onFilterChange: (FilterUiState) -> Unit,
     onClickMovie: (Int) -> Unit
@@ -330,8 +329,8 @@ fun EmptyMoviesList(
 @Composable
 fun MoviesListScreen(
     modifier: Modifier = Modifier,
-    newMovies: List<MovieUiState>,
-    movies: List<MovieUiState>,
+    newMovies: List<MovieListUiState>,
+    movies: List<MovieListUiState>,
     filterUiState: FilterUiState,
     onListMoviesEvent: (MoviesListEvent) -> Unit,
     onNavigateCreateMovie: () -> Unit,

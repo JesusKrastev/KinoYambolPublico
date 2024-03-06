@@ -1,6 +1,7 @@
 package com.kinoyamboladmin.models
 
 import androidx.compose.ui.graphics.ImageBitmap
+import com.kinoyamboladmin.data.mocks.movie.ScheduleMock
 import java.time.LocalDate
 import java.time.LocalTime
 

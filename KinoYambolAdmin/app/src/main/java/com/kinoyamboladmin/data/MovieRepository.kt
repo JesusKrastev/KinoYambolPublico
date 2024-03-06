@@ -1,16 +1,20 @@
 package com.kinoyamboladmin.data
 
+import com.kinoyamboladmin.data.mocks.language.LanguageDaoMock
 import com.kinoyamboladmin.data.mocks.movie.MovieDaoMock
 import com.kinoyamboladmin.data.mocks.movie.MovieMock
 import com.kinoyamboladmin.data.mocks.schedule.ScheduleDaoMock
+import com.kinoyamboladmin.data.mocks.schedule.ScheduleMock
 import com.kinoyamboladmin.models.Movie
+import com.kinoyamboladmin.models.Schedule
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class MovieRepository @Inject constructor(
     private val movieDao: MovieDaoMock,
-    private val scheduleDaoMock: ScheduleDaoMock
+    private val scheduleDao: ScheduleDaoMock,
+    private val languageDao: LanguageDaoMock
 ) {
     suspend fun get(): MutableList<Movie> = withContext(Dispatchers.IO) {
         movieDao.get().map { it.toMovie() }.toMutableList()
@@ -32,7 +36,7 @@ class MovieRepository @Inject constructor(
             name = name,
             description = description,
             genders = genders,
-            schedules = schedules.map { scheduleDaoMock.get(it)!!.toSchedule() },
+            schedules = schedules.map { scheduleDao.get(it)!!.toSchedule() },
             duration = duration,
             trailerLink = trailerLink,
             price = price
@@ -49,5 +53,12 @@ class MovieRepository @Inject constructor(
             duration = duration,
             trailerLink = trailerLink,
             price = price
+        )
+
+    fun ScheduleMock.toSchedule(): Schedule =
+        Schedule(
+            id = id,
+            language = languageDao.get(language)!!.toLanguage(),
+            movieSchedule = movieSchedule
         )
 }

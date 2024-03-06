@@ -21,20 +21,6 @@ fun Language.toLanguageMock(): LanguageMock =
         name = name
     )
 
-fun Schedule.toScheduleMock(): ScheduleMock =
-    ScheduleMock(
-        id = id,
-        language = language,
-        movieSchedule = movieSchedule
-    )
-
-fun ScheduleMock.toSchedule(): Schedule =
-    Schedule(
-        id = id,
-        language = language,
-        movieSchedule = movieSchedule
-    )
-
 fun GenderMock.toGender(): Gender =
     Gender(
         id = id,

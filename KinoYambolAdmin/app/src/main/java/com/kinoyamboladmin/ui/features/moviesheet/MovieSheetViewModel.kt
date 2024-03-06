@@ -19,13 +19,13 @@ class MovieSheetViewModel @Inject constructor(
 ): ViewModel() {
     class MovieViewModelException(message: String) : Exception(message)
 
-    var selectedMovieState: MovieUiState by mutableStateOf(MovieUiState())
+    var selectedMovieState: MovieSheetUiState by mutableStateOf(MovieSheetUiState())
         private set
 
     fun setMovie(idMovie: Int) {
         viewModelScope.launch {
             val movie: Movie = movieRepository.get(idMovie) ?: throw MovieViewModelException("El id $idMovie no existe en la base de datos")
-            selectedMovieState = movie.toMovieUiState()
+            selectedMovieState = movie.toMovieSheetUiState()
         }
     }
 

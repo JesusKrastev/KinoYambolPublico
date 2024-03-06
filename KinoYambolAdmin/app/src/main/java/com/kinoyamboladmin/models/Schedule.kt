@@ -5,6 +5,6 @@ import java.time.LocalTime
 
 data class Schedule(
     val id: Int,
-    val language: Int,
+    val language: Language,
     val movieSchedule: HashMap<LocalDate, List<LocalTime>>
 )

@@ -9,32 +9,6 @@ import com.kinoyamboladmin.models.Schedule
 import com.kinoyamboladmin.models.Language
 import com.kinoyamboladmin.models.Movie
 
-fun MovieMock.toMovie(): Movie =
-    Movie(
-        id = id,
-        image = image,
-        name = name,
-        description = description,
-        genders = genders,
-        schedules = schedules,
-        duration = duration,
-        trailerLink = trailerLink,
-        price = price
-    )
-
-fun Movie.toMovieMock(): MovieMock =
-    MovieMock(
-        id = id,
-        image = image,
-        name = name,
-        description = description,
-        schedules = schedules,
-        genders = genders,
-        duration = duration,
-        trailerLink = trailerLink,
-        price = price
-    )
-
 fun LanguageMock.toLanguage(): Language =
     Language(
         id = id,

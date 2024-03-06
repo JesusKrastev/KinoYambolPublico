@@ -68,6 +68,7 @@ class ScheduleDaoMock @Inject constructor() {
     )
 
     fun get(): MutableList<ScheduleMock> = schedules
+    fun get(id: Int): ScheduleMock? = schedules.find { it.id == id }
     fun insert(schedule: ScheduleMock) = schedules.add(schedule)
     fun update(newSchedule: ScheduleMock)  {
         val index = schedules.indexOfFirst { schedule -> schedule.id == schedule.id }

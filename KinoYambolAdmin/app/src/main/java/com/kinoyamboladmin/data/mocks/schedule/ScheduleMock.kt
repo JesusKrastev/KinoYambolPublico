@@ -5,7 +5,6 @@ import java.time.LocalTime
 
 data class ScheduleMock(
     val id: Int,
-    val movieId: Int,
     val language: Int,
     val movieSchedule: HashMap<LocalDate, List<LocalTime>>
 )

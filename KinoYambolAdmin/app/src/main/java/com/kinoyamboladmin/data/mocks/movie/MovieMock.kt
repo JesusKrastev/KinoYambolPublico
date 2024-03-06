@@ -8,12 +8,10 @@ import java.time.LocalTime
 data class MovieMock(
     val id: Int,
     val image: String,
-    val title: String,
+    val name: String,
     val description: String,
+    val schedules: List<Int>,
     val genders: List<String>,
-    val languages: List<String>,
-    val startDate: LocalDate,
-    val endDate: LocalDate,
     val duration: Int,
     val trailerLink: String,
     val price: Double

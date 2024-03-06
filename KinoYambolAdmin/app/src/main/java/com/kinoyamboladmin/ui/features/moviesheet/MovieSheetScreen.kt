@@ -191,7 +191,7 @@ fun Features(
             modifier = Modifier.weight(0.5f),
             icon = Icons.Filled.Translate,
             description = "language",
-            text = "${selectedMovie.languages[0]}"
+            text = "${selectedMovie.languages.joinToString(", ")}"
         )
     }
 }

@@ -22,7 +22,4 @@ class MovieRepository @Inject constructor(
     suspend fun update(newMovie: Movie) = withContext(Dispatchers.IO) {
         dao.update(newMovie.toMovieMock())
     }
-    suspend fun delete(id: Int) = withContext(Dispatchers.IO) {
-        dao.delete(id)
-    }
 }

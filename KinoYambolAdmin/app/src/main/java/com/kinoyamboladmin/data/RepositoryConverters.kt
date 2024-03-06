@@ -1,9 +1,9 @@
 package com.kinoyamboladmin.data
 
 import com.kinoyamboladmin.data.mocks.gender.GenderMock
-import com.kinoyamboladmin.data.mocks.schedule.ScheduleMock
 import com.kinoyamboladmin.data.mocks.language.LanguageMock
 import com.kinoyamboladmin.data.mocks.movie.MovieMock
+import com.kinoyamboladmin.data.mocks.schedule.ScheduleMock
 import com.kinoyamboladmin.models.Gender
 import com.kinoyamboladmin.models.Schedule
 import com.kinoyamboladmin.models.Language
@@ -13,12 +13,10 @@ fun MovieMock.toMovie(): Movie =
     Movie(
         id = id,
         image = image,
-        title = title,
+        name = name,
         description = description,
         genders = genders,
-        languages = languages,
-        startDate = startDate,
-        endDate = endDate,
+        schedules = schedules,
         duration = duration,
         trailerLink = trailerLink,
         price = price
@@ -28,12 +26,10 @@ fun Movie.toMovieMock(): MovieMock =
     MovieMock(
         id = id,
         image = image,
-        title = title,
+        name = name,
         description = description,
+        schedules = schedules,
         genders = genders,
-        languages = languages,
-        startDate = startDate,
-        endDate = endDate,
         duration = duration,
         trailerLink = trailerLink,
         price = price
@@ -51,18 +47,16 @@ fun Language.toLanguageMock(): LanguageMock =
         name = name
     )
 
-fun ScheduleMock.toSchedule(): Schedule =
-    Schedule(
+fun Schedule.toScheduleMock(): ScheduleMock =
+    ScheduleMock(
         id = id,
-        movieId = movieId,
         language = language,
         movieSchedule = movieSchedule
     )
 
-fun Schedule.toScheduleMock(): ScheduleMock =
-    ScheduleMock(
+fun ScheduleMock.toSchedule(): Schedule =
+    Schedule(
         id = id,
-        movieId = movieId,
         language = language,
         movieSchedule = movieSchedule
     )

@@ -37,7 +37,7 @@ fun NavGraphBuilder.movieSheetScreen(
         val movieId :Int? = backStackEntry.arguments?.getInt(MovieSheetParameterName, -1)
         if (movieId != null
             && movieId != -1) {
-            vm.setMovieState(movieId!!)
+            vm.setMovie(movieId!!)
         }
 
         MovieSheetScreen(

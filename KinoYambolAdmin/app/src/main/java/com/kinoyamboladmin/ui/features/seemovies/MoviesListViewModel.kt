@@ -19,13 +19,13 @@ class MoviesListViewModel @Inject constructor(
 ): ViewModel() {
     var filtersState: FilterUiState by mutableStateOf(FilterUiState(all = true))
         private set
-    var newMoviesState: List<MovieUiState> by mutableStateOf(listOf<MovieUiState>())
+    var newMoviesState: List<MovieListUiState> by mutableStateOf(listOf<MovieListUiState>())
         private set
-    var moviesState: List<MovieUiState> by mutableStateOf(listOf<MovieUiState>())
+    var moviesState: List<MovieListUiState> by mutableStateOf(listOf<MovieListUiState>())
         private set
 
-    private suspend fun getMovies(): List<MovieUiState> = movieRepository.get()
-        .map { it.toMovieUiState() }
+    private suspend fun getMovies(): List<MovieListUiState> = movieRepository.get()
+        .map { it.toMovieListUiState() }
         .toList()
 
     private fun loadMovies() {

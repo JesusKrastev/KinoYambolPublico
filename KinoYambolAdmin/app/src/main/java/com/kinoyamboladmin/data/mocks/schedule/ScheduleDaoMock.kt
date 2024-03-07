@@ -1,6 +1,5 @@
 package com.kinoyamboladmin.data.mocks.schedule
 
-import com.kinoyamboladmin.data.toScheduleMock
 import com.kinoyamboladmin.models.Schedule
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -55,15 +54,15 @@ class ScheduleDaoMock @Inject constructor() {
         ScheduleMock(
             id = 7,
             language = 1,
-            movieSchedule = hashMapOf()
-        ),
-        ScheduleMock(
-            id = 8,
-            language = 2,
             movieSchedule = hashMapOf(
                 LocalDate.of(2024, 3, 18) to listOf<LocalTime>(LocalTime.of(16, 30), LocalTime.of(20, 45)),
                 LocalDate.of(2024, 3, 19) to listOf<LocalTime>(LocalTime.of(17, 0), LocalTime.of(19, 0))
             )
+        ),
+        ScheduleMock(
+            id = 8,
+            language = 2,
+            movieSchedule = hashMapOf()
         )
     )
 

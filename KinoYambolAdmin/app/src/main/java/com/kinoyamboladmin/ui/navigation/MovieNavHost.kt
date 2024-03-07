@@ -41,7 +41,7 @@ fun MovieNavHost() {
         movieSheetScreen(
             vm = vmMovieSheet,
             onNavigateToMovies = {
-                navController.navigateToMoviesList()
+                navController.navigateUp()
             },
             onNavigateToScanner = {},
             onNavigateToStatistics = {

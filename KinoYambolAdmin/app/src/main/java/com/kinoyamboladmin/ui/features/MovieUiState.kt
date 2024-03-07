@@ -1,5 +1,7 @@
 package com.kinoyamboladmin.ui.features
 
+import com.kinoyamboladmin.data.mocks.language.LanguageMock
+import com.kinoyamboladmin.models.Language
 import com.kinoyamboladmin.models.Movie
 import com.kinoyamboladmin.models.Schedule
 
@@ -12,12 +14,18 @@ data class MovieUiState(
     val schedules: List<Schedule> = listOf(
         Schedule(
             id = 0,
-            language = 1,
+            language = Language(
+                id = 1,
+                name = "English"
+            ),
             movieSchedule = hashMapOf()
         ),
         Schedule(
             id = 0,
-            language = 2,
+            language = Language(
+                id = 2,
+                name = "български"
+            ),
             movieSchedule = hashMapOf()
         )
     ),

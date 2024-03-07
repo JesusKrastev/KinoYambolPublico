@@ -1,5 +1,6 @@
 package com.kinoyamboladmin.ui.features.moviesheet
 
+import android.util.Log
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background

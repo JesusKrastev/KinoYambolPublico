@@ -88,12 +88,14 @@ import com.kinoyamboladmin.ui.features.components.MoviesNavBar
 import com.kinoyamboladmin.ui.features.components.MoviesTopBar
 import com.kinoyamboladmin.utilities.device.registerImageSelectorWithGetContent
 import com.kinoyamboladmin.utilities.error_handling.InformationStateUiState
+import com.kinoyamboladmin.utilities.texts.UiText
 import com.kinoyamboladmin.utilities.validation.Validation
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalTime
+import java.time.Month
 import java.time.ZoneId
 
 @Composable
@@ -238,7 +240,7 @@ fun Genders(
             items(genders) { gender ->
                 FilterChipWithoutIcon(
                     selectedState = selectedGenders.contains(gender),
-                    textState = gender.name,
+                    textState = stringResource(id = gender.name),
                     onClick = { onChangeGenders(gender) }
                 )
             }
@@ -270,6 +272,27 @@ fun LanguageDropDownMenu(
 }
 
 @Composable
+fun translateMonth(nameMonth: String): String {
+    val resourceId: Int = when(nameMonth.lowercase()) {
+        "january" -> R.string.january_date
+        "february" -> R.string.february_date
+        "march" -> R.string.march_date
+        "april" -> R.string.april_date
+        "may" -> R.string.may_date
+        "june" -> R.string.june_date
+        "july" -> R.string.july_date
+        "august" -> R.string.august_date
+        "september" -> R.string.september_date
+        "october" -> R.string.october_date
+        "november" -> R.string.november_date
+        "december" -> R.string.december_date
+        else -> throw Exception("Month not found")
+    }
+
+    return stringResource(id = resourceId)
+}
+
+@Composable
 fun Date(
     modifier: Modifier = Modifier,
     date: LocalDate,
@@ -298,10 +321,7 @@ fun Date(
         ) {
             Text(
                 fontSize = MaterialTheme.typography.titleLarge.fontSize,
-                text = date.month.name
-                    .lowercase()
-                    .replaceFirstChar { it.uppercase() }
-                    .take(3),
+                text = translateMonth(date.month.name).take(3),
                 color = if(isSelected) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onBackground
             )
             Text(

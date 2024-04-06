@@ -25,7 +25,7 @@ fun NavGraphBuilder.settingsScreen(
         arguments = emptyList()
     ) {
         SettingsScreen(
-            languages = vm.languages.keys.toList(),
+            languages = vm.languages,
             themes = vm.themes,
             settingsUiState = vm.userSettingsState!!,
             onSettingsEvent = vm::onSettingsEvent,

@@ -174,7 +174,7 @@ class MovieFormViewModel @Inject constructor(
                 movieState = movieState.copy(genders = newGenders)
                 movieValidationState = movieValidationState.copy(
                     gendersValidation = movieValidator.gendersValidator.validate(
-                        movieState.genders.joinToString("") { it.name }
+                        movieState.genders.joinToString("") { it.name.toString() }
                     )
                 )
             }

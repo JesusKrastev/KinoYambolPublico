@@ -31,6 +31,7 @@ import com.kinoyamboladmin.R
 import com.kinoyamboladmin.ui.composables.OutlinedDropdownMenu
 import com.kinoyamboladmin.ui.composables.TextBody
 import com.kinoyamboladmin.ui.features.components.MoviesNavBar
+import com.kinoyamboladmin.utilities.texts.UiText
 import java.util.Locale
 
 @Composable
@@ -58,7 +59,7 @@ fun TextProperty(
 @Composable
 fun DropdownMenuProperty(
     modifier: Modifier = Modifier,
-    options: List<String>,
+    options: Map<String, String>,
     selectedOption: String,
     label: String,
     onChangeValue: (String) -> Unit,
@@ -87,22 +88,21 @@ fun DropdownMenuProperty(
 @Composable
 fun Properties(
     modifier: Modifier = Modifier,
-    languages: List<String>,
-    themes: List<String>,
+    languages: Map<String, String>,
+    themes: Map<String, String>,
     settingsUiState: SettingsUiState,
     onChangeLanguage: (String) -> Unit,
     onChangeTheme: (String) -> Unit,
     onClickPrivacyPolicies: () -> Unit,
     onClickTermsAndConditions: () -> Unit
 ) {
-    val context: Context = LocalContext.current
     @Immutable
     data class DropdownMenuPropertyUiState(
         val label: String = "",
         val icon: ImageVector = Icons.Filled.Settings,
         val selectedOption: String = "",
         val description: String? = null,
-        val options: List<String> = emptyList(),
+        val options: Map<String, String> = emptyMap(),
         val onChangeValue: (String) -> Unit
     )
     @Immutable
@@ -118,7 +118,7 @@ fun Properties(
             label = stringResource(R.string.label_language),
             icon = Icons.Filled.Language,
             description = "language",
-            selectedOption = settingsUiState.language,
+            selectedOption = languages[settingsUiState.language]!!,
             options = languages,
             onChangeValue = { onChangeLanguage(it) }
         ),
@@ -126,7 +126,7 @@ fun Properties(
             label = stringResource(R.string.label_theme),
             description = "theme",
             options = themes,
-            selectedOption = settingsUiState.theme,
+            selectedOption = themes[settingsUiState.theme]!!,
             icon = Icons.Filled.Contrast,
             onChangeValue = onChangeTheme
         )
@@ -177,8 +177,8 @@ fun Properties(
 @Composable
 fun MainContent(
     modifier: Modifier = Modifier,
-    languages: List<String>,
-    themes: List<String>,
+    languages: Map<String, String>,
+    themes: Map<String, String>,
     settingsUiState: SettingsUiState,
     onChangeLanguage: (String) -> Unit,
     onChangeTheme: (String) -> Unit,
@@ -203,8 +203,8 @@ fun MainContent(
 @Composable
 fun SettingsScreen(
     modifier: Modifier = Modifier,
-    languages: List<String>,
-    themes: List<String>,
+    languages: Map<String, UiText>,
+    themes: Map<String, UiText>,
     settingsUiState: SettingsUiState,
     onSettingsEvent: (SettingsEvent) -> Unit,
     onNavigateToMovies: () -> Unit,
@@ -220,8 +220,8 @@ fun SettingsScreen(
         content = { paddingValues ->
             MainContent(
                 modifier = Modifier.padding(paddingValues = paddingValues),
-                languages = languages,
-                themes = themes,
+                languages = languages.mapValues { it.value.asString() },
+                themes = themes.mapValues { it.value.asString() },
                 settingsUiState = settingsUiState,
                 onChangeLanguage = { onSettingsEvent(SettingsEvent.OnChangeLanguage(it)) },
                 onChangeTheme = { onSettingsEvent(SettingsEvent.OnChangeTheme(it)) },

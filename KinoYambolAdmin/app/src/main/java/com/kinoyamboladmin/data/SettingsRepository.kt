@@ -6,8 +6,10 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
+import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.kinoyamboladmin.models.Settings
+import com.kinoyamboladmin.models.SettingsValues
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.first
@@ -50,8 +52,8 @@ class SettingsRepository @Inject constructor(
     suspend fun fetchInitialPreferences() = mapSettings(dataStore.data.first().toPreferences())
 
     private fun mapSettings(preferences: Preferences): Settings {
-        val language: String = preferences[PreferencesKeys.LANGUAGE] ?: "Español"
-        val theme: String = preferences[PreferencesKeys.THEME] ?: "Sistema"
+        val language: String = preferences[PreferencesKeys.LANGUAGE] ?: SettingsValues.languages.keys.first()
+        val theme: String = preferences[PreferencesKeys.THEME] ?: SettingsValues.themes.keys.first()
 
         return Settings(
             language = language,

@@ -59,6 +59,7 @@ import com.kinoyamboladmin.ui.composables.TextBody
 import com.kinoyamboladmin.ui.composables.TextLabel
 import com.kinoyamboladmin.ui.composables.TextTile
 import com.kinoyamboladmin.ui.features.components.MoviesNavBar
+import com.kinoyamboladmin.utilities.texts.UiText
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
@@ -290,7 +291,7 @@ fun MainContent(
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
             TextTile(title = selectedMovie.name)
-            ListGenders(genders = selectedMovie.genders.map { it.name })
+            ListGenders(genders = selectedMovie.genders.map { stringResource(id = it.name) })
             Features(selectedMovie = selectedMovie)
             Description(
                 text = selectedMovie.description,

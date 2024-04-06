@@ -1,88 +1,89 @@
 package com.kinoyamboladmin.data.mocks.gender
 
+import com.kinoyamboladmin.R
 import javax.inject.Inject
 
 class GenderDaoMock @Inject constructor() {
     private var genders = mutableListOf<GenderMock>(
         GenderMock(
             id = 1,
-            name = "Acción"
+            name = R.string.label_action_gender
         ),
         GenderMock(
             id = 2,
-            name = "Aventura"
+            name = R.string.label_adventure_gender
         ),
         GenderMock(
             id = 3,
-            name = "Comedia"
+            name = R.string.label_comedy_gender
         ),
         GenderMock(
             id = 4,
-            name = "Drama"
+            name = R.string.label_drama_gender
         ),
         GenderMock(
             id = 5,
-            name = "Thriller"
+            name = R.string.label_thriller_gender
         ),
         GenderMock(
             id = 6,
-            name = "Ciencia Ficción"
+            name = R.string.label_science_fiction_gender
         ),
         GenderMock(
             id = 7,
-            name = "Terror"
+            name = R.string.label_terror_gender
         ),
         GenderMock(
             id = 8,
-            name = "Romance"
+            name = R.string.label_romance_gender
         ),
         GenderMock(
             id = 9,
-            name = "Fantasía"
+            name = R.string.label_fancy_gender
         ),
         GenderMock(
             id = 10,
-            name = "Animación"
+            name = R.string.label_animation_gender
         ),
         GenderMock(
             id = 11,
-            name = "Documental"
+            name = R.string.label_documentary_gender
         ),
         GenderMock(
             id = 12,
-            name = "Suspense"
+            name = R.string.label_suspense_gender
         ),
         GenderMock(
             id = 13,
-            name = "Musical"
+            name = R.string.label_musical_gender
         ),
         GenderMock(
             id = 14,
-            name = "Misterio"
+            name = R.string.label_mystery_gender
         ),
         GenderMock(
             id = 15,
-            name = "Western"
+            name = R.string.label_western_gender
         ),
         GenderMock(
             id = 16,
-            name = "Guerra"
+            name = R.string.label_war_gender
         ),
         GenderMock(
             id = 17,
-            name = "Crimen"
+            name = R.string.label_crime_gender
         ),
         GenderMock(
             id = 18,
-            name = "Biografía"
+            name = R.string.label_biography_gender
         ),
         GenderMock(
             id = 19,
-            name = "Deportes"
+            name = R.string.label_sports_gender
         ),
         GenderMock(
             id = 20,
-            name = "Histórico"
+            name = R.string.label_historical_gender
         )
     )
 

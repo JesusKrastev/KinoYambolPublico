@@ -12,7 +12,9 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kinoyamboladmin.data.SettingsRepository
+import com.kinoyamboladmin.models.Language
 import com.kinoyamboladmin.models.SettingsValues
+import com.kinoyamboladmin.utilities.texts.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
@@ -44,17 +46,21 @@ class SettingsViewModel @Inject constructor(
         loadUserSettings()
     }
 
+    private fun changeLanguage(language: String) {
+        viewModelScope.launch {
+            settingsRepository.saveLanguage(language)
+            // Restart the app to apply the new language
+            context.packageManager.getLaunchIntentForPackage(context.packageName)?.let { intent ->
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                context.startActivity(intent)
+            }
+        }
+    }
+
     fun onSettingsEvent(event: SettingsEvent) {
         when(event) {
             is SettingsEvent.OnChangeLanguage -> {
-                viewModelScope.launch {
-                    settingsRepository.saveLanguage(event.language)
-                    // Restart the app to apply the new language
-                    context.packageManager.getLaunchIntentForPackage(context.packageName)?.let { intent ->
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        context.startActivity(intent)
-                    }
-                }
+                if(userSettingsState?.language != event.language) changeLanguage(event.language)
             }
             is SettingsEvent.OnChangeTheme -> {
                 viewModelScope.launch {
@@ -65,9 +71,6 @@ class SettingsViewModel @Inject constructor(
 
             }
             is SettingsEvent.OnClickTermsAndConditions -> {
-
-            }
-            else -> {
 
             }
         }

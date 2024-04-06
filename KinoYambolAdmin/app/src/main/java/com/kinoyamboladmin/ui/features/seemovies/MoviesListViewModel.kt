@@ -17,7 +17,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MoviesListViewModel @Inject constructor(
-    application: Application,
     private val movieRepository: MovieRepository
 ): ViewModel() {
     var filtersState: FilterUiState by mutableStateOf(FilterUiState(all = true))
